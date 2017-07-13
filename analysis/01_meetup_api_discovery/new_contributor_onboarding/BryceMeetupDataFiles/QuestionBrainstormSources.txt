@@ -34,5 +34,5 @@ Source 3: This One Does Not Go Up to 11: The Quantified Self Movement as an Alte
   3. What new "subtopics" are beginning to show up?
   
  Question I would like to explore further:
-    - Where are emerging or smaller tech-hubs beginning to pop up?
+    - Can meetup signup data show where smaller tech hubs or communities are beginning to pop up?
   
