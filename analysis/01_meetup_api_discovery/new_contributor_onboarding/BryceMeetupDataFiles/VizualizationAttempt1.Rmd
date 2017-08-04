@@ -1,0 +1,41 @@
+---
+title: "Emerging Tech Hubs in the US"
+author: "Bryce Martinez"
+date: "July 31, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+```
+
+# Overview
+
+The question I am trying to answer is: How do we identify an emerging tech hub? The point of this research is to identify emerging tech hubs in the United States and the statistics why theya re considered that.
+
+## Hypothesis
+
+My hypothesis is that cities that are or will become emerging tech hubs will have similar characteristics to those of Silicon Valley and San Fransisco before the rise in cost of living.
+
+## Methodology
+
+Since most of the data needed is public record, gathering data involved searching through public records from the Bureau of Labor Statistics. The characteristics looked at included low housing costs, low unemployment rate, higher mean salaries in the tech industry when compared to other industries, there are large or major tech companies in the city, and an active venture capital environment.
+
+# Data
+
+Load your data here. Where did it come from? Did you do anything special to it?
+
+```{r load_data}
+library(readr)
+qcew_area <- read.csv("qcew_area_msa_tech.csv")
+```
+
+```{r}
+ggplot(qcew_area, aes(x = city, y = total_qtrly_wages)) +
+  xlab("City") +
+  ylab("Total Quaterly Wages") +
+  geom_bar(stat="identity")
+```
