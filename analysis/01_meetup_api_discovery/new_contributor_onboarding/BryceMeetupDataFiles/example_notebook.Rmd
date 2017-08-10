@@ -122,9 +122,9 @@ Make this work with the Meetup data:
 Plot a histogram with one variable:
 
 ```{r}
-ggplot(my_data, aes(x=column_name_for_thing_to_count) +
+ggplot(qcew_area, aes(x=qcew_area$state) +
   geom_bar() +
-  xlab("Thing I'm Counting")
+  xlab("States"))
 ```
 
 Group and Summarize something in the dataset:
@@ -157,10 +157,10 @@ Plot a summary using a bar chart:
 ```{r}
 # to use a bar plot with summaries, you need to use the keyword "identity"
 
-ggplot(my_data_summary, aes(x=numbers, y=thing) +
+ggplot(qcew_area, aes(x=qcew_area$city, y=qcew_area$total_qtrly_wages) +
   geom_bar(stat="identity") +
-  xlab("Thing I'm Numbering") +
-  ylab("Numbers")
+  xlab("Cities") +
+  ylab("Total Quaterly Wages"))
 	   
 # to plot a grouped value, use fill
 # use position="dodge" for bars next to each other, 
@@ -168,27 +168,27 @@ ggplot(my_data_summary, aes(x=numbers, y=thing) +
 ggplot(my_data_summary, aes(x=numbers, y=thing, fill=thing_type) +
   geom_bar(stat="identity", position="stack") +
   xlab("Thing I'm Numbering") +
-  ylab("Numbers")
+  ylab("Numbers"))
 
 # if your things are in the wrong order you can use reorder()
 # a "-" in front means descending, otherwise it's ascending (smallest first)
 ggplot(my_data_summary, aes(x=numbers, y=thing, fill=reorder(thing_type, -num_things)) +
   geom_bar(stat="identity", position="stack") +
   xlab("Thing I'm Numbering") +
-  ylab("Numbers") 
+  ylab("Numbers") )
 ```
 
 
 Plot 2 different columns using a line graph:
 
 ```{r}
-ggplot(data = my_data, aes(x = x_axis_thing) +
+ggplot(data = qcew_area, aes(x = qcew_area$city) +
   geom_point(aes(y = numerical_value1, color="Thing 1"), group=1) +
   geom_line(aes(y = numerical_value1, color="Thing 1"), group=1) +
   geom_point(aes(y = numerical_value2, color="Thing 2"), group=2) +
   geom_line(aes(y = numerical_value2, color="Thing 2"), group=2) +
   ylab("Numbers") +
-  xlab("Thing I'm Numbering")
+  xlab("Thing I'm Numbering"))
 ```
 
 

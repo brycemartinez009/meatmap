@@ -30,12 +30,23 @@ Load your data here. Where did it come from? Did you do anything special to it?
 
 ```{r load_data}
 library(readr)
-qcew_area <- read.csv("qcew_area_msa_tech.csv")
+qcew_area_tech <- read.csv("qcew_area_msa_tech.csv")
+unique(qcew_area_tech$industry_code)
+qcew_area_msa <- read.csv("qcew_area_msa.csv")
+```
+
+Plot the area fips with the total quaterly wages with the goal of highlighting the tech industries in each area fip.
+
+```{r}
+ggplot(qcew_area_tech, aes(x = area_fips, y = total_qtrly_wages)) +
+  xlab("Area Fips") +
+  ylab("Total Quaterly Wages") +
+  geom_bar(stat="identity")
 ```
 
 ```{r}
-ggplot(qcew_area, aes(x = city, y = total_qtrly_wages)) +
-  xlab("City") +
+ggplot(qcew_area_msa, aes(x = area_fips, y = total_qtrly_wages)) +
+  xlab("Area Fips") +
   ylab("Total Quaterly Wages") +
   geom_bar(stat="identity")
 ```
